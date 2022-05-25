@@ -1,0 +1,8 @@
+<h1>Users#show</h1>
+
+<% if user_signed_in? %>
+  <p> <%= "Welcome, #{current_user.last_name}" %></p>
+<p><%= current_user.email %></p>
+<p><%= current_user.encrypted_password %></p>
+<% end %>
+
