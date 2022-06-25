@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, expect: [:index, :show]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
 
   # GET /items or /items.json
   def index
@@ -63,8 +65,15 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id])
     end
 
+    def authorize_user
+      if current_user.id != @item.user_id
+        flash[:alert] = "you cannot do that!"
+        redirect_to items_path
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :category, :price, :item_image)
+      params.require(:item).permit(:title, :category, :price, :item_image, :sold, :user_id)
     end
 end
