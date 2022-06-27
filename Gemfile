@@ -69,3 +69,5 @@ gem "aws-sdk-s3", require: false
 gem "aws-sdk-locationservice", "~> 1.22"
 
 gem "geocoder", "~> 1.8"
+
+gem "stripe", "~> 6.4"

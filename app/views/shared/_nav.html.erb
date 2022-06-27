@@ -8,11 +8,6 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-         <% if user_signed_in? %>
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" %>
-        </li>
-
           <li class="nav-item">
             <a class="nav-link" href="#">Clothes</a>
           </li>
@@ -44,9 +39,13 @@
   </div>
 </nav>
 
+    <% if user_signed_in? %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" %>
+      <%= link_to 'Sell Item', new_item_path, class: "btn btn-outline-primary" %>
+
     <% else %>
        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-primary" %>
-       <%= link_to "Sign in", new_user_session_path, class: "btn btn-outline-primary" %>
+       <%= link_to "Sign in", new_user_session_path, class: 'btn btn-outline-primary' %>
     <% end %>
 
 

@@ -15,6 +15,24 @@
   <%= @item.price %>
 </p>
 
+<% if user_signed_in? %>
+  <button data-stripe="payment">Buy Now! <%= number_to_currency(@item.price.to_i) %></button>
+
+  <%= link_to 'Back', items_path %>
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <script>
+      document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+          const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+          stripe.redirectToCheckout ({
+              sessionId: "<%= @session_id %>"
+          });
+      });
+  </script>
+<% end %>
+
+
+
 <% if @item.item_image.attached? %>
 <p>
   <strong>Item_image:</strong>
@@ -23,5 +41,5 @@
 </p>
 <% end %>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+| <%= link_to 'Edit', edit_item_path(@item) %> |
+

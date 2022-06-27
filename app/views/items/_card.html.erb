@@ -1,0 +1,10 @@
+<div class="col-3">
+  <div class="card" style="width: 16rem;">
+    <%= image_tag item.item_image, alt: "#{item.title} image", class: "card-img-top card-img" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= item.title %></h5>
+      <p class="card-text">Price:  <%= item.price %></p>
+      <%= link_to "Show More", item_path(item.id), class: "btn btn-primary btn-right" %>
+    </div>
+  </div>
+</div>

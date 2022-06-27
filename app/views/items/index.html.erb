@@ -1,15 +1,6 @@
 <div class="row">
   <% @items.each do |item| %>
-    <div class="col-3">
-      <div class="card" style="width: 16rem;">
-        <%= image_tag item.item_image, class: "card-img-top card-img" %>
-        <div class="card-body">
-          <h5 class="card-title"><%= item.title %></h5>
-          <p class="card-text">Price:  <%= item.price %></p>
-          <%= link_to "Show More", item_path(item.id), class: "btn btn-primary btn-right" %>
-        </div>
-      </div>
-    </div>
+    <%= render 'card', item: item %>
     <% end %>
 </div>
 <!--      <tr>-->
@@ -21,4 +12,4 @@
 
 <br>
 
-<%= link_to 'New Item', new_item_path %>
+
