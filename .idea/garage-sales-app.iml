@@ -106,6 +106,7 @@
     <orderEntry type="library" scope="PROVIDED" name="sassc-rails (v2.1.2, rbenv: 2.7.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v4.1.0, rbenv: 2.7.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="semantic_range (v3.0.0, rbenv: 2.7.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="simple_form (v5.1.0, rbenv: 2.7.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="spring (v4.0.0, rbenv: 2.7.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.0.3, rbenv: 2.7.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.4.2, rbenv: 2.7.5) [gem]" level="application" />

@@ -1,10 +1,30 @@
-<h1>Users#show item</h1>
+
+<ul class="nav justify-content-end">
+<!--  navbar color: text-white bg-secondary-->
+  <li class="nav-item">
+    <%= link_to "home", items_path, class: "nav-link active" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Update profile", edit_user_registration_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Bought", orders_bought_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Sold", orders_sold_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Sell Item", new_item_path, class: "nav-link" %>
+  </li>
+</ul>
 
 <% if user_signed_in? %>
-  <p> <%= "Welcome, #{current_user.first_name}" %></p>
-  <p><%= current_user.email %></p>
-  <p><%= "Address - #{current_user.address}" %></p>
-  <p><%= "Post code - #{current_user.post_code}" %></p>
+  <h1> <%= "Welcome, #{current_user.email}" %></h1>
+ <br>
+
+  <p><%= "First Name: #{current_user.first_name}" %></p>
+  <p><%= "Last name: #{current_user.last_name}" %></p>
+  <p><%= "Address: #{current_user.address}" %></p>
+  <p><%= "Post code:  #{current_user.post_code}" %></p>
 <% end %>
 
-<p><%= link_to "Update my profile ", edit_user_registration_path %></p>

@@ -15,7 +15,9 @@
 
   <body>
   <div class="container">
-    <%= render 'shared/nav' %>
+    <% unless current_page?(users_show_path) %>
+      <%= render 'shared/nav' %>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

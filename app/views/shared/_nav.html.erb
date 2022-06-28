@@ -17,10 +17,6 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Kichenware</a>
-          </li>
-
-          <li class="nav-item">
             <a class="nav-link" href="#">Furniture</a>
           </li>
 
@@ -41,10 +37,9 @@
 
   <span style="float: right">
     <% if user_signed_in? %>
-      <%= link_to current_user.email, class: "button" %>
+      <%= link_to current_user.email, users_show_path, class: "button" %>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" %>
 
-      <%#= link_to 'Sell Item', new_item_path, class: "btn btn-outline-primary" %>
     <% else %>
        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-primary" %>
        <%= link_to "Sign in", new_user_session_path, class: 'btn btn-outline-primary' %>

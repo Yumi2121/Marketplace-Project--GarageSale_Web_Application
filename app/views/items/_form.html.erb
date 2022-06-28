@@ -1,37 +1,64 @@
-<%= form_with(model: item) do |form| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-      <ul>
-        <% item.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for(@item) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :price %>
+    <%= f.input :category, collection: ["Clothes", "Toys", "Kitchenware", "Furniture", "Misc"] %>
+    <br>
+    <%= f.file_field :picture, accept: 'image/png, image/jpg, image/jpeg'%>
   </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.select :category, ['Clothes', 'Toys', 'Kitchenware', 'Furniture', 'Misc'] %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :item_image %>
-    <%= form.file_field :item_image, accept: 'image/png, image/jpg, image/jpeg' %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <br>
+  <div class="form-actions btn btn-info">
+    <%= f.button :submit %>
   </div>
 <% end %>
+
+
+
+
+
+<%#= form_with(model: item) do |form| %>
+  <%# if item.errors.any? %>
+<!--    <div id="error_explanation">-->
+<!--      <h2><%#= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>-->
+
+<!--      <ul>-->
+        <%# item.errors.each do |error| %>
+<!--          <li><%#= error.full_message %></li>-->
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
+
+
+<!--  <div class="mb-3">-->
+<!--    <label for="InputTitle" class="form-label">Title</label>-->
+<!--    <input type="text" class="form-control" id="InputTitle" placeholder="Example: toy fish">-->
+<!--  </div>-->
+
+<!--  <div class="mb-3">-->
+    <%#= form.label :category %>
+    <%#= form.select :category, ['Clothes', 'Toys', 'Kitchenware', 'Furniture', 'Misc'] %>
+<!--  </div>-->
+
+<!--  <div class="mb-3">-->
+<!--    <label for="InputPrice" class="form-label">Price</label>-->
+<!--    <input type="text" class="form-control" id="InputPrice" placeholder="Example: 69.5">-->
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= form.label :item_image %>
+    <%#= form.file_field :item_image, accept: 'image/png, image/jpg, image/jpeg' %>
+<!--  </div>-->
+<!--  <br>-->
+
+<!--  <div class="actions">-->
+    <%#= form.submit %>
+<!--  </div>-->
+<!--  <div class="col-12">-->
+<!--    <button type="submit" class="btn btn-primary">Create Item</button>-->
+<!--  </div>-->
+<%# end %>
