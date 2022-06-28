@@ -71,3 +71,5 @@ gem "aws-sdk-locationservice", "~> 1.22"
 gem "geocoder", "~> 1.8"
 
 gem "stripe", "~> 6.4"
+
+gem "simple_form", "~> 5.1"

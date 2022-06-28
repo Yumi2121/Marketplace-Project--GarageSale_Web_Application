@@ -1,5 +1,33 @@
 <p id="notice"><%= notice %></p>
 
+<div>
+  <% if @item.item_image.attached? %>
+    <%= image_tag @item.item_image, alt: @item.title %>
+  <% else %>
+    <%= image_tag "Dog.jpeg", alt: default_image %>
+  <% end %>
+</div>
+
+<% if @item.sold %>
+  <h1>SOLD</h1>
+<% elsif current_user && current_user.id == @item.user_id %>
+  <h1>It is your own item</h1>
+<% elsif current_user %>
+  <button data-stripe="payment">Buy Now! <%= number_to_currency(@item.price.to_i) %></button>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+      document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+          const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+          stripe.redirectToCheckout ({
+              sessionId: "<%= @session_id %>"
+          });
+      });
+  </script>
+<% else %>
+  <h1>Please log in to make a purchase</h1>
+<% end %>
+
 <p>
   <strong>Title:</strong>
   <%= @item.title %>
@@ -15,31 +43,6 @@
   <%= @item.price %>
 </p>
 
-<% if user_signed_in? %>
-  <button data-stripe="payment">Buy Now! <%= number_to_currency(@item.price.to_i) %></button>
 
-  <%= link_to 'Back', items_path %>
-  <script src="https://js.stripe.com/v3/"></script>
-
-  <script>
-      document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
-          const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
-          stripe.redirectToCheckout ({
-              sessionId: "<%= @session_id %>"
-          });
-      });
-  </script>
-<% end %>
-
-
-
-<% if @item.item_image.attached? %>
-<p>
-  <strong>Item_image:</strong>
-  <img src="<%= url_for(@item.item_image) %>" alt="image">
-
-</p>
-<% end %>
-
-| <%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %> | <%= link_to 'Edit', edit_item_path(@item) %> |
 
