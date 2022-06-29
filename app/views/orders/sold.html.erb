@@ -2,7 +2,7 @@
 
 <h1>Listings</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
   <tr>
     <th>Title</th>
@@ -19,8 +19,8 @@
     <tr>
       <td><%= sold_item.item.title %></td>
       <td><%= number_to_currency(sold_item.item.price) %></td>
-      <td><%= item.buyer.email %></td>
-      <td><%= sold_item.item.category.name %></td>
+      <td><%= sold_item.buyer.email %></td>
+      <td><%= sold_item.item.category %></td>
     </tr>
   <% end %>
   </tbody>

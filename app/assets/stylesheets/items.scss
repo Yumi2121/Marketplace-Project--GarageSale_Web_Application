@@ -9,9 +9,13 @@
 .card{
   height: 20rem;
   margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .card-img{
-  width: 15rem;
+  max-width: 20rem;
   height: 10rem;
 }
+

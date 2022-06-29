@@ -19,12 +19,39 @@
 </ul>
 
 <% if user_signed_in? %>
-  <h1> <%= "Welcome, #{current_user.email}" %></h1>
+  <h1> <%= "Welcome to your Admin page, #{current_user.email}" %></h1>
  <br>
-
+  <h1>You account details:</h1>
   <p><%= "First Name: #{current_user.first_name}" %></p>
   <p><%= "Last name: #{current_user.last_name}" %></p>
   <p><%= "Address: #{current_user.address}" %></p>
   <p><%= "Post code:  #{current_user.post_code}" %></p>
 <% end %>
+<br>
 
+<h1>Listings for sale:</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Price</th>
+    <th>Sold</th>
+    <th>Category</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% current_user.items.each do |item| %>
+    <tr>
+      <td><%= item.title %></td>
+      <td><%= item.price %></td>
+      <td><%= item.sold %></td>
+      <td><%= item.user_id %></td>
+      <td><%= item.category %></td>
+      <td><%= link_to 'Edit', edit_item_path(item) %></td>
+      <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

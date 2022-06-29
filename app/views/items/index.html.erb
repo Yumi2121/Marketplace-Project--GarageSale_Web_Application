@@ -1,15 +1,10 @@
-<div class="row">
-  <% @items.each do |item| %>
-    <%= render 'card', item: item %>
+
+  <div class="row">
+    <% @items.each do |item| %>
+      <div class="col-md-3">
+        <%= render 'card', item: item %>
+      </div>
     <% end %>
-</div>
-<!--      <tr>-->
-<!--        <td><%#= link_to 'Show', item %></td>-->
-<!--        <td><%#= link_to 'Edit', edit_item_path(item) %></td>-->
-<!--        <td><%#= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-<!--      </tr>-->
-
-
-<br>
+  </div>
 
 

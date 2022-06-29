@@ -1,5 +1,5 @@
-<div class="col-3">
-  <div class="card" style="width: 16rem;">
+
+  <div class="card">
     <%= image_tag item.item_image, alt: "#{item.title} image", class: "card-img-top card-img" %>
     <div class="card-body">
       <h5 class="card-title"><%= item.title %></h5>
@@ -7,4 +7,3 @@
       <%= link_to "Show More", item_path(item.id), class: "btn btn-primary btn-right" %>
     </div>
   </div>
-</div>
