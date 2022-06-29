@@ -1,27 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-light justify-content-end">
-<ul class="nav justify-content-end">
-  <li class="nav-item">
-    <%= link_to "home", items_path, class: "nav-link active" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Update profile", edit_user_registration_path, class: "nav-link" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Bought", orders_bought_path, class: "nav-link" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Sold", orders_sold_path, class: "nav-link" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Sell Item", new_item_path, class: "nav-link" %>
-  </li>
-</ul>
-</nav>
-
+<%= render 'orders/nav-admin' %>
+<br>
+<br>
 <% if user_signed_in? %>
-  <h1> <%= "Welcome to your Admin page, #{current_user.email}" %></h1>
+  <h3> <%= "Welcome to your Profile page, #{current_user.email}" %></h3>
  <br>
-  <h1>You account details:</h1>
+  <h2>My Profile:</h2>
+  <%= link_to "Update profile", edit_user_registration_path, class: "btn btn-outline-info" %>
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-outline-info" %>
+  <br>
   <p><%= "First Name: #{current_user.first_name}" %></p>
   <p><%= "Last name: #{current_user.last_name}" %></p>
   <p><%= "Address: #{current_user.address}" %></p>
@@ -29,7 +15,10 @@
 <% end %>
 <br>
 
-<h1>Listings for sale:</h1>
+<h2>Listings for sale:</h2>
+<%= link_to "Sell New Item", new_item_path, class: "btn btn-outline-info" %>
+
+<br>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -49,7 +38,7 @@
       <td><%= item.sold %></td>
       <td><%= item.category %></td>
       <td><%= link_to 'Edit', edit_item_path(item) %></td>
-      <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </tbody>

@@ -15,7 +15,7 @@
 
   <body>
   <div class="container">
-    <% unless current_page?(users_show_path) %>
+    <% unless current_page?(users_show_path) || current_page?(orders_sold_path) || current_page?(orders_bought_path) %>
       <%= render 'shared/nav' %>
     <% end %>
     <p class="notice"><%= notice %></p>

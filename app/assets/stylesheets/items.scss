@@ -11,10 +11,22 @@
   margin-bottom: 15px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .card-img{
   max-width: 20rem;
   height: 10rem;
 }
+
+.show-item-container{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.show-item-image{
+  max-width: 20rem;
+}
+

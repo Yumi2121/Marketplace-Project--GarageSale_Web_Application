@@ -1,48 +1,66 @@
 <p id="notice"><%= notice %></p>
 
-<div>
-  <% if @item.item_image.attached? %>
-    <%= image_tag @item.item_image, alt: @item.title %>
-  <% else %>
-    <%= image_tag "Dog.jpeg", alt: default_image %>
-  <% end %>
+<div class="show-item-container">
+  <div class="non-map-section">
+    <div class="show-item-image">
+      <% if @item.item_image.attached? %>
+        <%= image_tag @item.item_image, alt: @item.title %>
+      <% else %>
+        <%= image_tag "Dog.jpeg", alt: default_image %>
+      <% end %>
+    </div>
+
+    <div>
+      <% if @item.sold %>
+        <h1>SOLD</h1>
+      <% elsif current_user && current_user.id == @item.user_id %>
+        <h1>It is your own item</h1>
+      <% elsif current_user %>
+        <button data-stripe="payment">Buy Now! <%= number_to_currency(@item.price.to_i) %></button>
+
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+            document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+                const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+                stripe.redirectToCheckout ({
+                    sessionId: "<%= @session_id %>"
+                });
+            });
+        </script>
+      <% else %>
+        <h1>Please log in to make a purchase</h1>
+      <% end %>
+    </div>
+    <br>
+    <div>
+      <p>
+        <strong>Title:</strong>
+        <%= @item.title %>
+      </p>
+
+      <p>
+        <strong>Category:</strong>
+        <%= @item.category %>
+      </p>
+
+      <p>
+        <strong>Price:</strong>
+        <%= @item.price %>
+      </p>
+    </div>
+ </div>
+
+  <div class="mapouter">
+    <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=<%= User.find_by_id(@item.user_id).address %>&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+      <a href="https://fmovies-online.net"></a>
+      <br>
+      <style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style>
+      <a href="https://www.embedgooglemap.net">custom google maps for website</a>
+      <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style>
+    </div>
+  </div>
 </div>
 
-<% if @item.sold %>
-  <h1>SOLD</h1>
-<% elsif current_user && current_user.id == @item.user_id %>
-  <h1>It is your own item</h1>
-<% elsif current_user %>
-  <button data-stripe="payment">Buy Now! <%= number_to_currency(@item.price.to_i) %></button>
+<%= link_to 'Back', items_path, class: "btn btn-outline-dark" %>
 
-  <script src="https://js.stripe.com/v3/"></script>
-  <script>
-      document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
-          const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
-          stripe.redirectToCheckout ({
-              sessionId: "<%= @session_id %>"
-          });
-      });
-  </script>
-<% else %>
-  <h1>Please log in to make a purchase</h1>
-<% end %>
-<br>
-<p>
-  <strong>Title:</strong>
-  <%= @item.title %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @item.category %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
-
-
-<%= link_to 'Back', items_path %> | <%= link_to 'Edit', edit_item_path(@item) %> |
 
