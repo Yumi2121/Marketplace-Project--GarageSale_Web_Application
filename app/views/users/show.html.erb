@@ -1,6 +1,5 @@
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-light justify-content-end">
 <ul class="nav justify-content-end">
-<!--  navbar color: text-white bg-secondary-->
   <li class="nav-item">
     <%= link_to "home", items_path, class: "nav-link active" %>
   </li>
@@ -17,6 +16,7 @@
     <%= link_to "Sell Item", new_item_path, class: "nav-link" %>
   </li>
 </ul>
+</nav>
 
 <% if user_signed_in? %>
   <h1> <%= "Welcome to your Admin page, #{current_user.email}" %></h1>
