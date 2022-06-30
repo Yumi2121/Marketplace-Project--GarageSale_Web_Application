@@ -19,6 +19,7 @@
   height: 10rem;
 }
 
+//-----------------------------show item page styling
 .show-item-container{
   position: relative;
   display: flex;
@@ -27,6 +28,13 @@
 }
 
 .show-item-image{
-  max-width: 20rem;
+  width: 42rem;
+  height: 18rem;
 }
 
+
+@media screen and (max-width: 414px) {
+  .show-item-container{
+    flex-direction: column;
+  }
+}
