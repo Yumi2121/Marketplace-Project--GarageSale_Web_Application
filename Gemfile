@@ -23,11 +23,6 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 #
-# custom gems
-gem 'bootstrap', '~> 5.1.3'
-gem 'jquery-rails'
-
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -61,6 +56,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# custom gems
+gem 'bootstrap', '~> 5.1.3'
+gem 'jquery-rails'
+
 # Add devise for authentication
 gem 'devise'
 
@@ -73,3 +72,5 @@ gem "geocoder", "~> 1.8"
 gem "stripe", "~> 6.4"
 
 gem "simple_form", "~> 5.1"
+
+gem "font-awesome-rails"

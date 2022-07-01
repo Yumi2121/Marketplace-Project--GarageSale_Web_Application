@@ -2,6 +2,40 @@
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+//-------------------------------search section
+/* Styles for wrapping the search box */
+.search-container{
+  width: 100%;
+  height: 500px;
+  padding-top: 160px;
+  background-image: url("backgroud2.jpeg");
+  background-size: 900px;
+}
+
+.search-section {
+  width: 50%;
+  margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+//------------------------------card section styling
 .btn-right{
   float: right;
 }

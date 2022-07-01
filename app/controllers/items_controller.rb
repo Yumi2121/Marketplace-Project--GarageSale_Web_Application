@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  require "font-awesome-rails"
   before_action :set_item, only: %i[ show edit update destroy]
   before_action :authenticate_user!, expect: [:index, :show]
   before_action :authorize_user, only: [:edit, :update, :destroy]

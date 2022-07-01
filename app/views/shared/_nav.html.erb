@@ -1,6 +1,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
+    <%= image_tag 'sales.png', size: '34x34', class: 'logo' %>
+    &nbsp &nbsp
     <a class="navbar-brand" href="/">GarageSale Items</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -25,24 +27,24 @@
           </li>
         </ul>
 
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-light" type="submit">Search</button>
-      </form>
-     </div>
+<!--      <form class="d-flex" role="search">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-light" type="submit">Search</button>-->
+<!--      </form>-->
+
+      <span class="d-flex">
+        <% if user_signed_in? %>
+          <%= link_to current_user.email, users_show_path, class: "btn btn-outline-info" %>
+
+        <% else %>
+         <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-primary" %>
+         <%= link_to "Sign in", new_user_session_path, class: 'btn btn-outline-primary' %>
+        <% end %>
+      </span>
+    </div>
   </div>
 </nav>
 
-  <span style="float: right">
-    <% if user_signed_in? %>
-      <%= link_to current_user.email, users_show_path, class: "btn btn-outline-info" %>
-      <%#= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
-
-    <% else %>
-       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-primary" %>
-       <%= link_to "Sign in", new_user_session_path, class: 'btn btn-outline-primary' %>
-    <% end %>
-  </span>
 
 
 

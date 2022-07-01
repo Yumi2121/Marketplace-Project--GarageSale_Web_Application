@@ -1,3 +1,19 @@
+<div class="search-container">
+  <div class="search-section">
+    <div class="form-group has-search">
+      <span class="fa fa-search form-control-feedback"></span>
+      <input type="text" class="form-control" placeholder="Search anything you want to buy">
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="list-title">
+  <h5>Good Choice!</h5>
+  <h5>Our website reviews with an average of 4.8 out of 5 stars <%= (image_tag 'star2.png', size: '32x32')*5 %></h5>
+<!--  <i class="fa-solid fa-star"></i>-->
+
+</div>
 
   <div class="row">
     <% @items.each do |item| %>
