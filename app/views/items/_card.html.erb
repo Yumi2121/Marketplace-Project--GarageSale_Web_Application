@@ -1,9 +1,13 @@
 
   <div class="card">
-    <%= image_tag item.item_image, alt: "#{item.title} image", class: "card-img-top card-img" %>
+    <% if item.item_image.attached? %>
+      <%= image_tag item.item_image, alt: "#{item.title} image", class: "card-img-top card-img" %>
+    <% else %>
+      <%= image_tag "Dog.jpeg", alt: default_formats, class: "card-img-top card-img" %>
+    <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= item.title %></h5>
-      <p class="card-text">Price:  <%= item.price %></p>
+      <p class="card-text">Price:  <%= number_to_currency(item.price.to_i) %></p>
       <%= link_to "Show More", item_path(item.id), class: "btn btn-primary btn-right" %>
     </div>
   </div>
