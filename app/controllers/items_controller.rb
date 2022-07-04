@@ -7,7 +7,14 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
-    @items = Item.all
+    if params.has_key?(:category)
+      category = params[:category]
+      @items = Item.find_by_sql("SELECT * FROM Items WHERE category=#{category}")
+      @show_search_bar = false
+    else
+      @items = Item.all
+      @show_search_bar = true
+    end
   end
 
   # GET /items/1 or /items/1.json
