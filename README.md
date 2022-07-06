@@ -62,6 +62,8 @@ The target audience for this application are those who want to sell their unwant
 - As a user of Zizi, I am a seller and a buyer. I want to be able to view my selling items, so I have better control of it.
 - As a user of Zizi, I am a seller and a buyer. I want to be able to view my bought items, so I have better control of it.
 - As a user of Zizi, I am a seller and a buyer. I want to be able to view my sold items, so I have better control of it.
+- As a buyer I want to be able to view the photo of the item I am browsing
+- As a seller I want to be able to upload photo of item I am selllng
 
 
 

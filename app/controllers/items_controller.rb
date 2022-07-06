@@ -13,6 +13,9 @@ class ItemsController < ApplicationController
       @show_search_bar = false
     else
       @items = Item.all
+
+
+
       @show_search_bar = true
     end
   end
