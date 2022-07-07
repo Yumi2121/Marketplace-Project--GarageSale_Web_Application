@@ -3,12 +3,22 @@
   <div class="search-section">
     <div class="form-group has-search">
       <span class="fa fa-search form-control-feedback"></span>
-      <input type="text" class="form-control" placeholder="Search anything you want to buy">
+      <input type="text" name="search_text" class="form-control" placeholder="Search anything you want to buy then press [Enter]">
+      <a class="link" href="/?keyword"></a>
     </div>
   </div>
 </div>
   <% end %>
 
+<!--search function detect keyword then use Enter to trigger by using JavaScript -->
+<script type="text/javascript" data-template="console" nonce="">
+    var input = document.querySelector("input[name=\"search_text\"]");
+    input.addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+            window.location.href = '/?keyword=' + input.value
+        }
+    });
+</script>
 
 <br>
 <div class="list-title">
@@ -18,12 +28,12 @@
 
 </div>
 
-  <div class="row">
-    <% @items.each do |item| %>
-      <div class="col-md-3">
-        <%= render 'card', item: item %>
-      </div>
-    <% end %>
-  </div>
+<div class="row">
+  <% @items.each do |item| %>
+    <div class="col-md-3">
+      <%= render 'card', item: item %>
+    </div>
+  <% end %>
+</div>
 
 

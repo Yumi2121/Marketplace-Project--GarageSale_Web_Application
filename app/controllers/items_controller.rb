@@ -9,12 +9,18 @@ class ItemsController < ApplicationController
   def index
     if params.has_key?(:category)
       category = params[:category]
+      # for filter the item by category, select all the items that match the selected category_id in item table in sql database
       @items = Item.find_by_sql("SELECT * FROM Items WHERE category=#{category}")
+      # hide the search-bar when perform category search
+      @show_search_bar = false
+    elsif params.has_key?(:keyword)
+      keyword = params[:keyword]
+      # for the search bar function, select all the items that the item title partially match the keyword that the user typed, also it's case insensitive
+      @items = Item.find_by_sql("SELECT * FROM Items WHERE title ILIKE '%#{keyword}%'")
+      # hide the search-bar when perform category search
       @show_search_bar = false
     else
       @items = Item.all
-
-
 
       @show_search_bar = true
     end
@@ -29,7 +35,7 @@ class ItemsController < ApplicationController
         line_items: [{
                        name: @item.title,
                        # description: @item.description,
-                       images: [@item.item_image],
+                       # images: [url_for(@item.item_image)],
                        amount: (@item.price * 100).to_i,
                        currency: 'aud',
                        quantity: 1,

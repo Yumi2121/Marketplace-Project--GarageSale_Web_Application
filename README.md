@@ -44,7 +44,7 @@ This online garage sale application was inspired by the traditional garage sale,
 
 ## Target audience
 
-The target audience for this application are those who want to sell their unwanted items, and those who want to buy second-hand items with reasonable prices, especially the people who support sustainable lifestyles. 
+The target audience for this application are those who want to sell their unwanted items, and those who want to buy second-hand items with reasonable prices, especially for those people who support sustainable lifestyles. 
 
 
 
@@ -62,8 +62,8 @@ The target audience for this application are those who want to sell their unwant
 - As a user of Zizi, I am a seller and a buyer. I want to be able to view my selling items, so I have better control of it.
 - As a user of Zizi, I am a seller and a buyer. I want to be able to view my bought items, so I have better control of it.
 - As a user of Zizi, I am a seller and a buyer. I want to be able to view my sold items, so I have better control of it.
-- As a buyer I want to be able to view the photo of the item I am browsing
-- As a seller I want to be able to upload photo of item I am selllng
+- As a buyer Elle, I want to be able to view the photo of the item I am browsing
+- As a seller Qiqi, I want to be able to upload photo of item I am selllng
 
 
 
@@ -135,9 +135,9 @@ As a typical Rails application, this online garage sale app uses Model View Cont
 
   The following models are used in garage sale applications:
 
-  - `Item`, which inherits from ApplicationRecord. `Item` model has many `orders` and belongs to `User`.
-  - `Order`, which inherits from ApplicationRecord. `Order` model belongs to `item` and `user` (buyer and seller).
-  - `User`, which inherits from ApplicationRecord. `User` model has many `items`, also has many `sold_orders` and `bought_orders`. 
+  - `Item`, which inherits from ApplicationRecord. `Item` model has_many `orders` and belongs_to `User`.
+  - `Order`, which inherits from ApplicationRecord. `Order` model belongs_to `item` and `user` (buyer and seller).
+  - `User`, which inherits from ApplicationRecord. `User` model has_many `items`, also has_many `sold_orders` and `bought_orders`. 
   - ApplicationRecord inherit from `ActiveRecord::Base`, which defines some helpful method that will apply to all models belonging to ApplicationRecord. in this app, define `self.abstract_class= true` . 
 
 - **Controller**
@@ -146,7 +146,7 @@ As a typical Rails application, this online garage sale app uses Model View Cont
 
   - `Items` Controller, which inherits from ApplicationController. It defines methods such as index, show, new, edit, create, update and destroy. Each of the method has its corresponding view page and mapped to specific routes in `routes.rb`. 
   - `Orders` Controller, which inherits from ApplicationController. It defines `bought` and `sold` action.
-  - `Payment` Controller, which inherits from ApplicationController, method `success` was defined and linked to the success  page after the payment. 
+  - `Payment` Controller, which inherits from ApplicationController, method `success` was defined in this controller and linked to the success  page after the payment. 
   - `User` Controller, which inherits from ApplicationController. `Show` action was defined in this controller to  link to my profile page. 
   - Only ApplicationController inherits from `ActionController::Base`, all other controllers inherit from ApplicationController. This offers special configure requests, for example request forgery protection or give permit to specific parameters in this case. 
 
@@ -206,22 +206,27 @@ This application implimented relational database model and includes 3 tables:
 
 
 
-## Tech stack (e.g. html, css, deployment platform, etc)
+## Tech stack 
 
-### Ruby on Rails
+- **Ruby on Rails**
+  - ruby '2.7.5'
+  - rails '~> 6.1.5'
 
-### PostgreSQL
+- **PostgreSQL**
 
-### HTML
+- **HTML**
 
-### SCSS
+- **SCSS**
 
-### Heroku
+- **Heroku** 
 
-### Ruby Gems
+- **GitHub**
 
-- Bootstrap
-- **FontAwesome**
+- **Ruby Gems**
+  - Bootstrap
+  - devise
+  - simple_form, "~> 5.1"
+  - stripe, "~> 6.4"
 
 
 
