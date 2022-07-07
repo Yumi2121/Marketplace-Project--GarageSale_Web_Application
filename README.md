@@ -69,27 +69,27 @@ The target audience for this application are those who want to sell their unwant
 
 ## Functionality and Features
 
-- sign in, sign up, sign out
+- Sign in, sign up & sign out
 
 - Filter sale items by catagory
 
-- Search items
+- Search items by keyword
 
-- become a seller
+- Selling item (become a seller)
 
-- view item details
+- View item details
 
-- puchase item
+- Puchase item online by using credit card 
 
-- view sellers location
+- View sellers location
 
-- my profile, be able to view, update
+- My profile page, used to view, update any user infomation
 
-- view all my sale item
+- View the item i am selling ( as a seller)
 
-- view all bought item
+- View all bought item ( as a buyer)
 
-- view all sold items
+- View all sold items ( as a seller)
 
   
 
@@ -118,14 +118,6 @@ The target audience for this application are those who want to sell their unwant
 
 
 ## Application components and their associations (high-level) -R15
-
-1.Explain the different high-level components (abstractions) in your *app*(mvc)
-
-2.Describe your projects *models* in terms of the relationships (active record associations) they have with each other
-
-3.Explain how the MVC architecture and concept of inheritance impact the structure of your application and the entities within it (Precisely explains and shows understanding of how the MVC architecture and concept of inheritance impact the structure of your application and the entities within it)
-
-
 
 As a typical Rails application, this online garage sale app uses Model View Controller (MVC) architecture pattern. 
 
@@ -169,12 +161,6 @@ As a typical Rails application, this online garage sale app uses Model View Cont
 
 
 ## Database
-
-1.Discuss the database relations to be implemented in your application
-
-2.Provide your database schema design
-
-
 
 A relational database model represents the database as a collection of tables, all the relations are saved as table format. And foreign keys are structured into a relational database to link together two or more tables.
 
@@ -232,25 +218,31 @@ This application implimented relational database model and includes 3 tables:
 
 ## Third party services
 
-- AWS S3 
-- Heroku
-- Google map
+- **AWS S3** 
 
+  Amazon Simple Storage Service (Amazon S3) provides cloud storage for web applications, for example websites and images. In this app, AWS S3 is used for the image upload, retrieving and deleting. 
 
+- **Heroku**
+
+  Heroku is a cloud platform as a service (PaaS), it allows developers to build, deploy and manage web applications in the cloud. And It supports most of the popular languages such as Ruby and Node.js. This app uses the free model of Heroku to manage the staging app until deployment of the final production version . 
+
+- **Google map**
+
+  Google map is a web mapping platform, it offered satellite imagery, maps, route planning etc. all sort of functions that related to map. This app uses Google map to display the seller's location, so the buyer will easily know the distance between sellers to help to make a purchase decision. 
 
 
 
 ## Project plan and Task Management
 
+This application adopted an agile project management methodology. Starting from the planning stage, I listed all the user stories and used them as guides to design the features of this app. According to the main features, I have also drafted the ERD and wireframe, which is really helpful as ERD displays the relationship of models and Wireframes provide a solid view that puts all the ideas and features together.
 
+Trello is the project management tool that I'm using and found it's very powerful and easy to use. Each user story becomes one of my cards that needs to be completed in Trello. I have 4 main list sections in Trello: To do, pending, done and maybe feature. 'Maybe Feature' is created for more optional features if I have enough time in the end. Cards will be allocated to the corresponding list during the process and each card got the priority level, so I can prioritize the important tasks and complete the high priority one first. The task I am working on is marked as pending and when completed it is marked as done. (please see Trello screenshot below)
 
+GitHub is also a very important tool I used throughout this project. I have created a repo in GitHub and use a dev branch to update any feature during the development stage. It was really useful as you can see any changes between commits, so easy to debug and ensured the features merged to main are always working.
 
+Unit testing is also performed when I complete a feature, this is to make sure the small part is functional to avoid a big crush on the project.
 
-
-
-
-
-
+Heroku is the deploy platform used for this project, the project has deployed to Heroku as an staging app when it only got a very basic function, Heroku are related with my GitHub repo and perform auto sync from dev branch. When most of the features are completed in the project and working well in the staging app, it is then promoted to production.
 
 
 
