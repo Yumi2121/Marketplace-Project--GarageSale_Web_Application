@@ -2,7 +2,7 @@
 
 ### by Zumin Yu  
 
-**Website:** 
+**Website:** https://online-garage-sale-app.herokuapp.com/
 
 **GitHub Repo:** https://github.com/Yumi2121/CA-T2A2-Marketplace-Project (private to public)
 
