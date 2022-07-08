@@ -12,17 +12,7 @@
 
 ## Table of Contents
 
-
-
-
-
-
-
-
-
-
-
-
+[TOC]
 
 
 
@@ -117,7 +107,7 @@ The target audience for this application are those who want to sell their unwant
 
 
 
-## Application components and their associations (high-level) -R15
+## Application components and their associations
 
 As a typical Rails application, this online garage sale app uses Model View Controller (MVC) architecture pattern. 
 
@@ -238,11 +228,9 @@ This application adopted an agile project management methodology. Starting from 
 
 Trello is the project management tool that I'm using and found it's very powerful and easy to use. Each user story becomes one of my cards that needs to be completed in Trello. I have 4 main list sections in Trello: To do, pending, done and maybe feature. 'Maybe Feature' is created for more optional features if I have enough time in the end. Cards will be allocated to the corresponding list during the process and each card got the priority level, so I can prioritize the important tasks and complete the high priority one first. The task I am working on is marked as pending and when completed it is marked as done. (please see Trello screenshot below)
 
-GitHub is also a very important tool I used throughout this project. I have created a repo in GitHub and use a dev branch to update any feature during the development stage. It was really useful as you can see any changes between commits, so easy to debug and ensured the features merged to main are always working.
+GitHub is also a very important tool I used throughout this project. I have created a repo in GitHub and use a dev branch to update any feature during the development stage. It is really useful as you can see any changes between commits, so easy to debug and ensured the features merged to main are always working. Unit testing also will be performed when I complete a feature, this is to make sure the small part is functional to avoid a big crush on the project.
 
-Unit testing is also performed when I complete a feature, this is to make sure the small part is functional to avoid a big crush on the project.
-
-Heroku is the deploy platform used for this project, the project has deployed to Heroku as an staging app when it only got a very basic function, Heroku are related with my GitHub repo and perform auto sync from dev branch. When most of the features are completed in the project and working well in the staging app, it is then promoted to production.
+Heroku will be the deploy platform for this project.  Heroku also related with my GitHub repo and will perform auto sync from dev branch. At first the project will deploy to Heroku as an staging app, when most of the features are completed in the project and working well in the staging app, it will then promoted to production.
 
 
 

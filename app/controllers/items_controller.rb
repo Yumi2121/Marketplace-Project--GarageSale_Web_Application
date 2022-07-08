@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
         line_items: [{
                        name: @item.title,
                        # description: @item.description,
-                       # images: [url_for(@item.item_image)],
+                       images: [rails_blob_url(@item.item_image)],
                        amount: (@item.price * 100).to_i,
                        currency: 'aud',
                        quantity: 1,
