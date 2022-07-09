@@ -4,6 +4,7 @@ module MailgunHelper
 
 def send_email(from, to, subject, text)
   api_key = Rails.application.credentials.mailgun[:api_key]
+  domain = Rails.application.credentials.mailgun[:domain]
   mg_client = Mailgun::Client.new(api_key)
 
   message_params =  {
@@ -13,7 +14,7 @@ def send_email(from, to, subject, text)
     text:    text
   }
 
-  mg_client.send_message('sandbox02d977fdcd5c475082288a10816da577.mailgun.com', message_params).to_h!
+  mg_client.send_message(domain, message_params).to_h!
 end
 
 end
