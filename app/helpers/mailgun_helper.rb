@@ -3,7 +3,8 @@ require 'mailgun-ruby'
 module MailgunHelper
 
 def send_email(from, to, subject, text)
-  mg_client = Mailgun::Client.new("3b80caf720cf06f75e70280b7c24071a-1b8ced53-6329cd2e")
+  api_key = Rails.application.credentials.mailgun[:api_key]
+  mg_client = Mailgun::Client.new(api_key)
 
   message_params =  {
     from: from,
@@ -12,7 +13,7 @@ def send_email(from, to, subject, text)
     text:    text
   }
 
-  mg_client.send_message('sandboxf306c5e9e0354454bf3130aa88de8717.mailgun.com', message_params).to_h!
+  mg_client.send_message('sandbox02d977fdcd5c475082288a10816da577.mailgun.com', message_params).to_h!
 end
 
 end

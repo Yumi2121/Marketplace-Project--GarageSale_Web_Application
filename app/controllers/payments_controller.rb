@@ -16,8 +16,12 @@ class PaymentsController < ApplicationController
     buyer_name = current_user.first_name
     item_title = @item.title
 
-    MailgunHelper::send_email('admin@garagesale.com', seller_email,'Your item is sold', " #{buyer_name} bought one of your item #{item_title}.")
-    MailgunHelper::send_email('admin@garagesale.com', buyer_email,'You bought an item', "You bought an item #{item_title}." )
+    # Put the mailout inside the exception, so when it failed the website still function
+    begin
+      MailgunHelper::send_email('admin@garagesale.com', seller_email,'Your item is sold', " #{buyer_name} bought one of your item #{item_title}.")
+      MailgunHelper::send_email('admin@garagesale.com', buyer_email,'You bought an item', "You bought an item #{item_title}." )
+    rescue => e
+    end
 
   end
 end

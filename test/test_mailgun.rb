@@ -1,7 +1,7 @@
 require 'mailgun-ruby'
 
 def send_email(from, to, subject, text)
-  mg_client = Mailgun::Client.new("3b80caf720cf06f75e70280b7c24071a-1b8ced53-6329cd2e")
+  mg_client = Mailgun::Client.new("b63d31824d3cb3c7b6e829f28e8d71ca-1b8ced53-8e0e2bd7")
 
   message_params =  {
     from: from,
@@ -10,10 +10,13 @@ def send_email(from, to, subject, text)
     text:    text
   }
 
-  result = mg_client.send_message('sandboxf306c5e9e0354454bf3130aa88de8717.mailgun.com', message_params).to_h!
+  result = mg_client.send_message('sandbox02d977fdcd5c475082288a10816da577.mailgun.com', message_params).to_h!
   print(result)
 end
 
-send_email("blah@gmail.com", "zumin2016@gmail.com", "abc", "aaa")
+begin
+  send_email("admin@garagesale.com", "msubzero2000@gmail.com", "abc", "aaa")
+rescue => e
+end
 # send_email('admin@garagesale.com', "#{User.find_by_id(@item.user_id).email}",'Your item sold', " #{current_user} bought one of your item #{@item.title} " )
 # send_email('admin@garage.com', " #{current_user.email}", "Thank you for your order", "Thank you for your order. We will get your item shipped soon")
