@@ -101,11 +101,23 @@ The target audience for this application are those who want to sell their unwant
 
 Screenshots images also available in docs/screenshot folder
 
+![index-page](docs/screenshot/index-page.png)
+
+![indexPage-item-list](docs/screenshot/indexPage-item-list.png)
+
+![Item-detail-page](docs/screenshot/Item-detail-page.png)
+
+![show-item-payment-button](docs/screenshot/show-item-payment-button.png)
+
+![my-profile-page](docs/screenshot/my-profile-page.png)
+
 
 
 ## Sitemap
 
 Image also avaliable in docs/Garage Sale Sitemap.png
+
+![Garage Sale Sitemap](docs/Garage Sale Sitemap.png)
 
 
 
@@ -160,6 +172,8 @@ As a typical Rails application, this online garage sale app uses Model View Cont
 
 *ERD `User` table combine address and suburb as our case has no need for them to be separated plus when using Google Map to show the map, they are required to be together.
 
+![Garage-sale-app.drawio](docs/Garage-sale-app.drawio.png)
+
 
 
 
@@ -191,6 +205,16 @@ This application implimented relational database model and includes 3 tables:
 **Database schema design**:
 
 Image also available in docs/schema1-3.png
+
+![schema1](docs/schema1.png)
+
+
+
+![schema2](docs/schema2.png)
+
+
+
+![schema3](docs/schema3.png)
 
 
 
@@ -245,7 +269,7 @@ GitHub is also a very important tool I used throughout this project. I have crea
 
 Heroku will be the deploy platform for this project.  Heroku also related with my GitHub repo and will perform auto sync from dev branch. At first the project will deploy to Heroku as an staging app, when most of the features are completed in the project and working well in the staging app, it will then promoted to production.
 
-
+![Trello](docs/Trello.png)
 
 
 
