@@ -4,7 +4,9 @@
 
 **Website:** https://online-garage-sale-app.herokuapp.com/
 
-**GitHub Repo:** https://github.com/Yumi2121/CA-T2A2-Marketplace-Project (private to public)
+**GitHub Repo:** https://github.com/Yumi2121/CA-T2A2-Marketplace-Project 
+
+**Trello:** https://trello.com/b/gbRYUNlg/market-place-project-garage-sale-application
 
 
 
@@ -38,6 +40,10 @@ The target audience for this application are those who want to sell their unwant
 
 
 
+
+
+
+
 ## User stories 
 
 - As a new app user, I want to be able to sign up, so that I can buy and sell items. 
@@ -52,8 +58,10 @@ The target audience for this application are those who want to sell their unwant
 - As a user of Zizi, I am a seller and a buyer. I want to be able to view my selling items, so I have better control of it.
 - As a user of Zizi, I am a seller and a buyer. I want to be able to view my bought items, so I have better control of it.
 - As a user of Zizi, I am a seller and a buyer. I want to be able to view my sold items, so I have better control of it.
-- As a buyer Elle, I want to be able to view the photo of the item I am browsing
-- As a seller Qiqi, I want to be able to upload photo of item I am selllng
+- As a buyer Elle, I want to be able to view the photo of the item I am browsing.
+- As a seller Qiqi, I want to be able to upload photo of item I am selllng.
+- As a seller Mary.A, I want to be informed by email that my item has been sold, so that I have better track of my selling.
+- As a buyer Mary.B, I want to receive an email to confirm my purchase, so that I can save as a record. 
 
 
 
@@ -81,27 +89,41 @@ The target audience for this application are those who want to sell their unwant
 
 - View all sold items ( as a seller)
 
+- Email notification to buyer and seller after item has been purchased. 
+
+  (As we do not have domain registered, some email address (gmail) might be blocked by mailgun. However I have tested this with my own email address and they work ok.)
+  
   
 
 
 
 ## Screenshots
 
+Screenshots images also available in docs/screenshot folder
 
+![index-page](docs/screenshot/index-page.png)
 
+![indexPage-item-list](docs/screenshot/indexPage-item-list.png)
 
+![Item-detail-page](docs/screenshot/Item-detail-page.png)
+
+![show-item-payment-button](docs/screenshot/show-item-payment-button.png)
+
+![my-profile-page](docs/screenshot/my-profile-page.png)
 
 
 
 ## Sitemap
 
+Image also avaliable in docs/Garage Sale Sitemap.png
 
+![Garage Sale Sitemap](docs/Garage Sale Sitemap.png)
 
 
 
 ## Wireframes
 
-
+Wireframe also avaliable in docs/Garage sale Wireframe@2x.png
 
 
 
@@ -146,6 +168,12 @@ As a typical Rails application, this online garage sale app uses Model View Cont
 
 ## ERD
 
+**ERD also avaliable in docs/Garage-sale-app.drawio.png**
+
+*ERD `User` table combine address and suburb as our case has no need for them to be separated plus when using Google Map to show the map, they are required to be together.
+
+![Garage-sale-app.drawio](docs/Garage-sale-app.drawio.png)
+
 
 
 
@@ -172,13 +200,21 @@ This application implimented relational database model and includes 3 tables:
 
 
 
+
+
 **Database schema design**:
 
+Image also available in docs/schema1-3.png
+
+![schema1](docs/schema1.png)
 
 
 
+![schema2](docs/schema2.png)
 
 
+
+![schema3](docs/schema3.png)
 
 
 
@@ -203,6 +239,7 @@ This application implimented relational database model and includes 3 tables:
   - devise
   - simple_form, "~> 5.1"
   - stripe, "~> 6.4"
+  - mailgun-ruby, "~> 1.2"
 
 
 
@@ -226,20 +263,15 @@ This application implimented relational database model and includes 3 tables:
 
 This application adopted an agile project management methodology. Starting from the planning stage, I listed all the user stories and used them as guides to design the features of this app. According to the main features, I have also drafted the ERD and wireframe, which is really helpful as ERD displays the relationship of models and Wireframes provide a solid view that puts all the ideas and features together.
 
-Trello is the project management tool that I'm using and found it's very powerful and easy to use. Each user story becomes one of my cards that needs to be completed in Trello. I have 4 main list sections in Trello: To do, pending, done and maybe feature. 'Maybe Feature' is created for more optional features if I have enough time in the end. Cards will be allocated to the corresponding list during the process and each card got the priority level, so I can prioritize the important tasks and complete the high priority one first. The task I am working on is marked as pending and when completed it is marked as done. (please see Trello screenshot below)
+Trello is the project management tool that I'm using and found it's very powerful and easy to use. Each user story becomes one of my cards that needs to be completed in Trello. I have 4 main list sections in Trello: To do, pending, done and maybe feature. 'Maybe Feature' is created for more optional features if I have enough time in the end. Cards will be allocated to the corresponding list during the process and each card got the priority level, so I can prioritize the important tasks and complete the high priority one first. The task I am working on is marked as pending and when completed it is marked as done. *(please see Trello screenshot below, image aslo also avaliable in docs/Trello.png)*
 
 GitHub is also a very important tool I used throughout this project. I have created a repo in GitHub and use a dev branch to update any feature during the development stage. It is really useful as you can see any changes between commits, so easy to debug and ensured the features merged to main are always working. Unit testing also will be performed when I complete a feature, this is to make sure the small part is functional to avoid a big crush on the project.
 
 Heroku will be the deploy platform for this project.  Heroku also related with my GitHub repo and will perform auto sync from dev branch. At first the project will deploy to Heroku as an staging app, when most of the features are completed in the project and working well in the staging app, it will then promoted to production.
 
+![Trello](docs/Trello.png)
 
 
 
 
 
-
-<details><summary>Click me</summary>
- <p>
-   #### This is the dropdown content!
-  </p>
-</details>

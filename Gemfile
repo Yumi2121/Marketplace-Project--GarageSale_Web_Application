@@ -74,3 +74,5 @@ gem "stripe", "~> 6.4"
 gem "simple_form", "~> 5.1"
 
 gem "font-awesome-rails"
+
+gem "mailgun-ruby", "~> 1.2"
